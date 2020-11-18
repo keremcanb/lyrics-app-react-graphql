@@ -4,7 +4,11 @@ import { graphql } from 'react-apollo';
 import { Link } from 'react-router-dom';
 import query from '../queries/fetchSongs';
 
-const SongList = ({ data: { songs, loading } }) => {
+const SongList = ({ data: { songs, loading }, mutate }) => {
+  const deleteHandler = (id) => {
+    mutate({ variables: { id } });
+  };
+
   return !loading ? (
     <div>
       <ul className='collection'>
@@ -12,6 +16,12 @@ const SongList = ({ data: { songs, loading } }) => {
           return (
             <li key={song.id} className='collection-item'>
               {song.title}
+              <i
+                className='material-icons'
+                onClick={() => deleteHandler(song.id)}
+              >
+                delete
+              </i>
             </li>
           );
         })}
@@ -27,5 +37,13 @@ const SongList = ({ data: { songs, loading } }) => {
   );
 };
 
+const mutation = gql`
+  mutation DeleteSong($id: ID) {
+    deleteSong(id: $id) {
+      id
+    }
+  }
+`;
+
 // data prop
-export default graphql(query)(SongList);
+export default graphql(mutation)(graphql(query)(SongList));
