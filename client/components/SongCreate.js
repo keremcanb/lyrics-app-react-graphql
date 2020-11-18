@@ -1,15 +1,28 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import { Link, hashHistory } from 'react-router';
-import query from '../queries/fetchSongs';
+// import { Link, hashHistory } from 'react-router-dom';
+// import query from '../queries/fetchSongs';
 
-class SongCreate extends Component {
-  constructor(props) {
-    super(props);
+const SongCreate = () => {
+  const [title, setTitle] = useState('');
 
-    this.state = { title: '' };
-  }
-}
+  return (
+    <div>
+      <h3>Create New Song</h3>
+      <form action=''>
+        <label>Song Title:</label>
+        <input
+          onChange={(e) =>
+            setTitle({
+              title: e.target.value,
+            })
+          }
+        />
+      </form>
+    </div>
+  );
+};
 
-export default graphql(mutation)(SongCreate);
+export default SongCreate;
+// export default graphql(mutation)(SongCreate);

@@ -1,15 +1,23 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import ApolloClient from 'apollo-client';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+import { ApolloClient, InMemoryCache } from '@apollo/client';
 import { ApolloProvider } from 'react-apollo';
 import SongList from './components/SongList';
+import SongCreate from './components/SongCreate';
 
-const client = new ApolloClient({});
+const client = new ApolloClient({
+  uri: 'http://localhost:4000/graphql',
+  cache: new InMemoryCache(),
+});
 
 const Root = () => {
   return (
     <ApolloProvider client={client}>
-      <SongList />
+      <Router>
+        <Route path='/' component={SongList} exact />
+        <Route path='/newsong' component={SongCreate} exact />
+      </Router>
     </ApolloProvider>
   );
 };
