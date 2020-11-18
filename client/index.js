@@ -15,8 +15,10 @@ const Root = () => {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <Route path='/' component={SongList} exact />
-        <Route path='/newsong' component={SongCreate} exact />
+        <div className='container'>
+          <Route path='/' component={SongList} exact />
+          <Route path='/song/new' component={SongCreate} exact />
+        </div>
       </Router>
     </ApolloProvider>
   );

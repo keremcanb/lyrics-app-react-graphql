@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import { graphql } from 'react-apollo';
-import gql from 'graphql-tag';
+// import { graphql } from 'react-apollo';
+// import gql from 'graphql-tag';
 // import { Link, hashHistory } from 'react-router-dom';
 // import query from '../queries/fetchSongs';
 
@@ -25,4 +25,3 @@ const SongCreate = () => {
 };
 
 export default SongCreate;
-// export default graphql(mutation)(SongCreate);
