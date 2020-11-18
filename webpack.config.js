@@ -6,6 +6,7 @@ module.exports = {
   entry: './client/index.js',
   output: {
     path: '/',
+    publicPath: '/',
     filename: 'bundle.js',
   },
   module: {
@@ -20,6 +21,9 @@ module.exports = {
         test: /\.css$/,
       },
     ],
+  },
+  devServer: {
+    historyApiFallback: true,
   },
   plugins: [
     new HtmlWebpackPlugin({
