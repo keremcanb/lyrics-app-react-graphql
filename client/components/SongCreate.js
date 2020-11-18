@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
-import { Link } from 'react-router-dom';
+import { Link, hashHistory } from 'react-router';
 import query from '../queries/fetchSongs';
 
-const SongCreate = ({ mutate, history }) => {
+const SongCreate = ({ mutate }) => {
   const [title, setTitle] = useState('');
 
   const submitHandler = (e) => {
@@ -15,7 +15,7 @@ const SongCreate = ({ mutate, history }) => {
         title,
       },
       refetchQueries: [{ query }],
-    }).then(() => history.push('/'));
+    }).then(() => hashHistory.push('/'));
   };
 
   return (

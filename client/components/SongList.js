@@ -1,7 +1,7 @@
 import React from 'react';
 import gql from 'graphql-tag';
 import { graphql } from 'react-apollo';
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router';
 import query from '../queries/fetchSongs';
 
 const SongList = ({ data: { songs, loading }, mutate }) => {
