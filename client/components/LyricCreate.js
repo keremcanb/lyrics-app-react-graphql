@@ -1,12 +1,15 @@
-// import React, { Component } from 'react';
+import React from 'react';
 // import gql from 'graphql-tag';
 // import { graphql } from 'react-apollo';
 
-// class LyricCreate extends Component {
-//   constructor(props) {
-//     super(props);
+const LyricCreate = () => {
+  return (
+    <div>
+      <h3>Lyric Create</h3>
+    </div>
+  );
+};
 
-//     this.state = { content: '' };
-//   }
+export default LyricCreate;
 
 // export default graphql(mutation)(LyricCreate);

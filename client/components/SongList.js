@@ -4,15 +4,16 @@ import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
 import query from '../queries/fetchSongs';
 
-const SongList = ({ data: { songs, loading }, mutate }) => {
+// data prop from react-apollo
+const SongList = ({ data, mutate }) => {
   const deleteHandler = (id) => {
-    mutate({ variables: { id } });
+    mutate({ variables: { id } }).then(() => data.refetch());
   };
 
-  return !loading ? (
+  return !data.loading ? (
     <div>
       <ul className='collection'>
-        {songs.map((song) => {
+        {data.songs.map((song) => {
           return (
             <li key={song.id} className='collection-item'>
               {song.title}
@@ -45,5 +46,4 @@ const mutation = gql`
   }
 `;
 
-// data prop
 export default graphql(mutation)(graphql(query)(SongList));
