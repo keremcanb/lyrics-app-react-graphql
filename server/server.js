@@ -14,10 +14,10 @@ mongoose.connect(mongoUri, {
   useUnifiedTopology: true,
 });
 mongoose.connection.on('connected', () => {
-  console.log('Connected to mongo instance');
+  console.log('Connected to MongoDB');
 });
 mongoose.connection.on('error', (err) => {
-  console.error('Error connecting to mongo', err);
+  console.error('Error connecting to MongoDB', err);
 });
 
 app.use(bodyParser.json());
