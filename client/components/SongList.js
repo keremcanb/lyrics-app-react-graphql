@@ -13,14 +13,11 @@ const SongList = ({ data, mutate }) => {
   return !data.loading ? (
     <div>
       <ul className='collection'>
-        {data.songs.map((song) => {
+        {data.songs.map(({ id, title }) => {
           return (
-            <li key={song.id} className='collection-item'>
-              {song.title}
-              <i
-                className='material-icons'
-                onClick={() => deleteHandler(song.id)}
-              >
+            <li key={id} className='collection-item'>
+              <Link to={`/songs/${id}`}>{title}</Link>
+              <i className='material-icons' onClick={() => deleteHandler(id)}>
                 delete
               </i>
             </li>
