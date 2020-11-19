@@ -11,23 +11,22 @@ const SongList = ({ data, mutate }) => {
   };
 
   return !data.loading ? (
-    <div>
+    <>
       <ul className='collection'>
-        {data.songs.map(({ id, title }) => {
-          return (
-            <li key={id} className='collection-item'>
-              <Link to={`/songs/${id}`}>{title}</Link>
-              <i className='material-icons' onClick={() => deleteHandler(id)}>
-                delete
-              </i>
-            </li>
-          );
-        })}
+        {data.songs.map(({ id, title }) => (
+          <li key={id} className='collection-item'>
+            <Link to={`/songs/${id}`}>{title}</Link>
+            <i className='material-icons' onClick={() => deleteHandler(id)}>
+              delete
+            </i>
+          </li>
+        ))}
       </ul>
+
       <Link to='/songs/new' className='btn-floating btn-large red right'>
         <i className='material-icons'>add</i>
       </Link>
-    </div>
+    </>
   ) : (
     <div className='progress'>
       <div className='indeterminate'></div>
