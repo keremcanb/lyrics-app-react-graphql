@@ -3,13 +3,15 @@ import { graphql } from 'react-apollo';
 import { Link } from 'react-router';
 import fetchSong from '../queries/fetchSong';
 import LyricCreate from './LyricCreate';
-// import LyricList from './LyricList';
+import LyricList from './LyricList';
 
 const SongDetail = ({ data: { song }, params }) => {
   return song ? (
     <div>
       <Link to='/'>Back</Link>
       <h3>{song.title}</h3>
+      {/* pass lyrics to lyric list comp */}
+      <LyricList lyrics={song.lyrics} />
       {/* pass song id to lyric create comp */}
       <LyricCreate songId={params.id} />
     </div>

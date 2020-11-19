@@ -1,7 +1,22 @@
-// import React, { Component } from 'react';
-// import { graphql } from 'react-apollo';
-// import gql from 'graphql-tag';
+import React from 'react';
+import { graphql } from 'react-apollo';
+import gql from 'graphql-tag';
 
-// class LyricList extends Component {}
+const LyricList = ({ lyrics }) => {
+  return (
+    <div>
+      <ul className='collection'>
+        {lyrics.map(({ id, content }) => {
+          return (
+            <li key={id} className='collection-item'>
+              {content}
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+};
 
+export default LyricList;
 // export default graphql(mutation)(LyricList);
