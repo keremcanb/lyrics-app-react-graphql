@@ -3,9 +3,17 @@ import { graphql } from 'react-apollo';
 import gql from 'graphql-tag';
 
 const LyricList = ({ lyrics, mutate }) => {
-  const onLike = (id) => {
+  const onLike = (id, likes) => {
     mutate({
       variables: { id },
+      optimisticResponse: {
+        __typename: 'Mutation',
+        likeLyric: {
+          id,
+          __typename: 'LyricType',
+          likes: likes + 1,
+        },
+      },
     });
   };
 
