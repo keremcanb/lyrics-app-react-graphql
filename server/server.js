@@ -1,37 +1,30 @@
+require('dotenv').config();
+const ENV = process.env.NODE_ENV || 'development';
+const PORT = process.env.PORT || 3000;
+
 const express = require('express');
-const models = require('./models');
-const expressGraphQL = require('express-graphql');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const schema = require('./schema/schema');
+const { ApolloServer } = require('apollo-server-express');
+
+const dbConfig = require('./db')[ENV];
+const corsOptions = require('./config/corsConfig');
+const schema = require('./schema');
 
 const app = express();
-
-const mongoUri = 'mongodb://localhost:27017/lyrical';
-mongoose.connect(mongoUri, {
-  useNewUrlParser: true,
-  useCreateIndex: true,
-  useUnifiedTopology: true,
-});
-mongoose.connection.on('connected', () => {
-  console.log('Connected to MongoDB');
-});
-mongoose.connection.on('error', (err) => {
-  console.error('Error connecting to MongoDB', err);
+const server = new ApolloServer(schema);
+server.applyMiddleware({
+  app, // instance of the server
+  cors: corsOptions, // takes a plain object - apollo calls cors() internally
+  path: '/graphql', // the default path
 });
 
-app.use(bodyParser.json());
-app.use(
-  '/graphql',
-  expressGraphQL.graphqlHTTP({
-    schema,
-    graphiql: true,
+mongoose
+  .connect(dbConfig.url, { useNewUrlParser: true, useUnifiedTopology: true })
+  .then(() => {
+    console.log(`Connected to ${dbConfig.url}`);
+    app.listen(PORT, () => console.log(`Server listening on port ${PORT}`));
   })
-);
-
-const webpackMiddleware = require('webpack-dev-middleware');
-const webpack = require('webpack');
-const webpackConfig = require('../webpack.config.js');
-app.use(webpackMiddleware(webpack(webpackConfig)));
-
-module.exports = app;
+  .catch((err) => {
+    console.log(err.message);
+    process.exit(1);
+  });
