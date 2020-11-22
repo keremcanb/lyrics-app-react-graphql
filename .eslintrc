@@ -4,13 +4,12 @@
     "es2020": true,
     "node": true
   },
-  "extends": ["prettier", "airbnb-base"],
-  "plugins": ["prettier", "graphql"],
+  "extends": ["airbnb-base"],
+  "plugins": ["graphql"],
   "parserOptions": {
     "ecmaVersion": 11
   },
   "rules": {
-    "prettier/prettier": ["error", { "singleQuote": true }],
     "no-console": "off",
     "comma-dangle": "off",
     "consistent-return": "off",

@@ -47,7 +47,7 @@ module.exports = {
     },
 
     deleteSong(parentValue, { id }) {
-      return Song.remove({ _id: id });
+      return Song.deleteOne({ _id: id });
     },
   },
 };
