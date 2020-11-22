@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from 'react';
+import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Mutation } from 'react-apollo';
 
@@ -20,7 +20,7 @@ const SongCreate = ({ history }) => {
   return (
     <Mutation mutation={ADD_SONG}>
       {(addSong) => (
-        <Fragment>
+        <>
           <Link to='/'>Back</Link>
 
           <h3>Create a New Song</h3>
@@ -33,7 +33,7 @@ const SongCreate = ({ history }) => {
               value={title}
             />
           </form>
-        </Fragment>
+        </>
       )}
     </Mutation>
   );

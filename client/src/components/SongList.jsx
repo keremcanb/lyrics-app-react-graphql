@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { Query, Mutation } from 'react-apollo';
 
@@ -16,7 +16,7 @@ const renderSongs = ({ songs }) =>
   songs.map(({ id, title }) => (
     <Mutation key={id} mutation={DELETE_SONG}>
       {(deleteSong) => (
-        <Fragment>
+        <>
           <li className='collection-item'>
             <Link to={`/songs/${id}`}>{title}</Link>
             <i
@@ -26,7 +26,7 @@ const renderSongs = ({ songs }) =>
               delete
             </i>
           </li>
-        </Fragment>
+        </>
       )}
     </Mutation>
   ));
@@ -36,19 +36,19 @@ const SongList = () => (
     {({ loading, error, data }) => {
       return !loading ? (
         !error ? (
-          <Fragment>
+          <>
             <h3>All Songs</h3>
             <ul className='collection'>{renderSongs(data)}</ul>
             <Link to='/songs/new' className='btn-floating btn-large red right'>
               <i className='material-icons'>add</i>
             </Link>
-          </Fragment>
+          </>
         ) : (
           <p>Error loading songs.</p>
         )
       ) : (
         <div className='progress'>
-          <div className='indeterminate'></div>
+          <div className='indeterminate' />
         </div>
       );
     }}

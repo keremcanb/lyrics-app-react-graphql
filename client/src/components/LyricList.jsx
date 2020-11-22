@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { Mutation } from 'react-apollo';
 
 import LIKE_LYRIC from '../mutations/likeLyric';
@@ -21,7 +21,7 @@ const renderLyrics = (lyrics) =>
   lyrics.map(({ id, content, likes }) => (
     <Mutation key={id} mutation={LIKE_LYRIC}>
       {(likeLyric) => (
-        <Fragment>
+        <>
           <li className='collection-item'>
             {content}
 
@@ -35,7 +35,7 @@ const renderLyrics = (lyrics) =>
               {likes}
             </div>
           </li>
-        </Fragment>
+        </>
       )}
     </Mutation>
   ));
