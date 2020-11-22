@@ -7,7 +7,6 @@ import DELETE_SONG from '../mutations/deleteSong';
 
 const SongList = () => {
   const { loading, error, data } = useQuery(FETCH_SONGS);
-
   const [deleteSong] = useMutation(DELETE_SONG);
 
   const deleteSongHandler = (mutation, songId) => {

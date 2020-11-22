@@ -1,6 +1,6 @@
-# Lyrics App React GraphQL
+# Lyrics App React GraphQL Webpack
 
-A simple lyrics app for practicing GraphQL
+A simple lyrics app for practicing GraphQL & Webpack. The original version was very old, I completely refactored it using Apollo Hooks.
 
 Libraries used for the front end are React, React Router, React Apollo, GraphQL Tag
 
