@@ -7,11 +7,12 @@
     "start": "webpack serve --config webpack.dev.js"
   },
   "dependencies": {
-    "apollo-boost": "^0.4.9",
+    "@apollo/client": "^3.2.7",
+    "apollo-client": "^2.6.10",
     "babel-loader": "^8.2.1",
     "graphql": "^15.4.0",
+    "graphql-tag": "^2.11.0",
     "react": "^17.0.1",
-    "react-apollo": "^3.1.5",
     "react-dom": "^17.0.1",
     "react-router-dom": "^5.2.0"
   },

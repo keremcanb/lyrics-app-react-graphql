@@ -1,39 +1,37 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import { Mutation } from 'react-apollo';
+import { useMutation } from '@apollo/client';
 import FETCH_SONGS from '../queries/fetchSongs';
 import ADD_SONG from '../mutations/addSong';
 
 const SongCreate = ({ history }) => {
   const [title, setTitle] = useState('');
 
-  const onAddSong = (e, mutation) => {
+  const [addSong] = useMutation(ADD_SONG);
+
+  const addSongHandler = (e) => {
     e.preventDefault();
-    mutation({
+    // Assign value from input to title query var and pass to mutation
+    addSong({
       variables: { title },
       refetchQueries: [{ query: FETCH_SONGS }],
-    }).then(() => history.push('/'));
+    });
+    history.push('/');
   };
 
   return (
-    <Mutation mutation={ADD_SONG}>
-      {(addSong) => (
-        <>
-          <Link to='/'>Back</Link>
-
-          <h3>Create a New Song</h3>
-
-          <form onSubmit={(e) => onAddSong(e, addSong)}>
-            <label>Song Title:</label>
-            <input
-              type='text'
-              onChange={(e) => setTitle(e.target.value)}
-              value={title}
-            />
-          </form>
-        </>
-      )}
-    </Mutation>
+    <>
+      <h3>Create a New Song</h3>
+      <form onSubmit={addSongHandler}>
+        <label>Song Title:</label>
+        <input
+          type='text'
+          onChange={(e) => setTitle(e.target.value)}
+          value={title}
+        />
+      </form>
+      <Link to='/'>Back</Link>
+    </>
   );
 };
 

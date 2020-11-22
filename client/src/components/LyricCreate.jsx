@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
-import { Mutation } from 'react-apollo';
+import { useMutation } from '@apollo/client';
 import ADD_LYRIC from '../mutations/addLyricToSong';
 
 const LyricCreate = ({ songId }) => {
   const [content, setContent] = useState('');
 
-  const onSubmit = (e, mutation) => {
+  const [addLyric] = useMutation(ADD_LYRIC);
+
+  const submitHandler = (e) => {
     e.preventDefault();
-    mutation({
+    addLyric({
       variables: {
         content,
         songId,
@@ -17,18 +19,14 @@ const LyricCreate = ({ songId }) => {
   };
 
   return (
-    <Mutation mutation={ADD_LYRIC}>
-      {(addLyric) => (
-        <form onSubmit={(e) => onSubmit(e, addLyric)}>
-          <label>Add a Lyric</label>
-          <input
-            type='text'
-            value={content}
-            onChange={(e) => setContent(e.target.value)}
-          />
-        </form>
-      )}
-    </Mutation>
+    <form onSubmit={submitHandler}>
+      <label>Add a Lyric</label>
+      <input
+        type='text'
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      />
+    </form>
   );
 };
 
