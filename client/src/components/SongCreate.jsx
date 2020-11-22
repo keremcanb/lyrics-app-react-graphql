@@ -10,7 +10,6 @@ const SongCreate = ({ history }) => {
 
   const onAddSong = (e, mutation) => {
     e.preventDefault();
-
     mutation({
       variables: { title },
       refetchQueries: [{ query: FETCH_SONGS }],

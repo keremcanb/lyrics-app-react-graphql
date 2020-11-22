@@ -20,7 +20,7 @@ const Root = () => (
     <HashRouter>
       <div className='container'>
         <Switch>
-          <Route exact path='/' component={SongList} />
+          <Route path='/' exact component={SongList} />
           <Route path='/songs/new' component={SongCreate} />
           <Route path='/songs/:id' component={SongDetail} />
         </Switch>

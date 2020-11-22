@@ -17,17 +17,16 @@ const onLikeLyric = (mutation, lyricId, likes) => {
   });
 };
 
-const renderLyrics = (lyrics) =>
-  lyrics.map(({ id, content, likes }) => (
-    <Mutation key={id} mutation={LIKE_LYRIC}>
-      {(likeLyric) => (
-        <>
+const LyricList = ({ lyrics }) => (
+  <ul className='collection'>
+    {lyrics.map(({ id, content, likes }) => (
+      <Mutation key={id} mutation={LIKE_LYRIC}>
+        {(likeLyric) => (
           <li
             className='collection-item'
             style={{ display: 'flex', justifyContent: 'space-between' }}
           >
             {content}
-
             <div style={{ display: 'flex', alignItems: 'center' }}>
               <i
                 className='material-icons'
@@ -39,13 +38,10 @@ const renderLyrics = (lyrics) =>
               {likes}
             </div>
           </li>
-        </>
-      )}
-    </Mutation>
-  ));
-
-const LyricList = ({ lyrics }) => (
-  <ul className='collection'>{renderLyrics(lyrics)}</ul>
+        )}
+      </Mutation>
+    ))}
+  </ul>
 );
 
 export default LyricList;

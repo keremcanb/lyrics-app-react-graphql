@@ -8,7 +8,6 @@ const LyricCreate = ({ songId }) => {
 
   const onSubmit = (e, mutation) => {
     e.preventDefault();
-
     mutation({
       variables: {
         content,

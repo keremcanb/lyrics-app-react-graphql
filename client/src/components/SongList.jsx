@@ -12,29 +12,6 @@ const onDeleteSong = (mutation, songId) => {
   });
 };
 
-const renderSongs = ({ songs }) =>
-  songs.map(({ id, title }) => (
-    <Mutation key={id} mutation={DELETE_SONG}>
-      {(deleteSong) => (
-        <>
-          <li
-            className='collection-item'
-            style={{ display: 'flex', justifyContent: 'space-between' }}
-          >
-            <Link to={`/songs/${id}`}>{title}</Link>
-            <i
-              className='material-icons'
-              style={{ cursor: 'pointer', marginRight: '5px' }}
-              onClick={() => onDeleteSong(deleteSong, id)}
-            >
-              delete
-            </i>
-          </li>
-        </>
-      )}
-    </Mutation>
-  ));
-
 const SongList = () => (
   <Query query={FETCH_SONGS}>
     {({ loading, error, data }) => {
@@ -42,7 +19,33 @@ const SongList = () => (
         !error ? (
           <>
             <h3>All Songs</h3>
-            <ul className='collection'>{renderSongs(data)}</ul>
+
+            <ul className='collection'>
+              {data.songs.map(({ id, title }) => (
+                <Mutation key={id} mutation={DELETE_SONG}>
+                  {(deleteSong) => (
+                    <li
+                      className='collection-item'
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                      }}
+                    >
+                      <Link to={`/songs/${id}`}>{title}</Link>
+
+                      <i
+                        className='material-icons'
+                        style={{ cursor: 'pointer', marginRight: '5px' }}
+                        onClick={() => onDeleteSong(deleteSong, id)}
+                      >
+                        delete
+                      </i>
+                    </li>
+                  )}
+                </Mutation>
+              ))}
+            </ul>
+
             <Link to='/songs/new' className='btn-floating btn-large red right'>
               <i className='material-icons'>add</i>
             </Link>
