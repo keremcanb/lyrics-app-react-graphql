@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { Query } from 'react-apollo';
 import LyricCreate from './LyricCreate';
 import LyricList from './LyricList';
+import Loader from './Loader';
 import FETCH_SONG from '../queries/fetchOneSong';
 
 const SongDetail = ({ match }) => {
@@ -21,9 +22,7 @@ const SongDetail = ({ match }) => {
             <p>Error loading song.</p>
           )
         ) : (
-          <div className='progress'>
-            <div className='indeterminate' />
-          </div>
+          <Loader />
         );
       }}
     </Query>

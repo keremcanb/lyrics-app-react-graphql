@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Query, Mutation } from 'react-apollo';
+import Loader from './Loader';
 import FETCH_SONGS from '../queries/fetchSongs';
 import DELETE_SONG from '../mutations/deleteSong';
 
@@ -25,10 +26,10 @@ const SongList = () => (
                   {(deleteSong) => (
                     <li
                       className='collection-item'
-                      // style={{
-                      //   display: 'flex',
-                      //   justifyContent: 'space-between',
-                      // }}
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                      }}
                     >
                       <Link to={`/songs/${id}`}>{title}</Link>
 
@@ -53,9 +54,7 @@ const SongList = () => (
           <p>Error loading songs.</p>
         )
       ) : (
-        <div className='progress'>
-          <div className='indeterminate' />
-        </div>
+        <Loader />
       );
     }}
   </Query>
