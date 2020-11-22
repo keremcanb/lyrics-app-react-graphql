@@ -1,6 +1,7 @@
 {
   "name": "lyrical-server",
   "version": "2.0.0",
+  "license": "MIT",
   "main": "server.js",
   "scripts": {
     "start": "node server/server",
@@ -8,7 +9,6 @@
     "client": "npm start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\""
   },
-  "license": "MIT",
   "dependencies": {
     "apollo-server-express": "^2.19.0",
     "dotenv": "^8.2.0",
