@@ -17,10 +17,14 @@ const renderSongs = ({ songs }) =>
     <Mutation key={id} mutation={DELETE_SONG}>
       {(deleteSong) => (
         <>
-          <li className='collection-item'>
+          <li
+            className='collection-item'
+            style={{ display: 'flex', justifyContent: 'space-between' }}
+          >
             <Link to={`/songs/${id}`}>{title}</Link>
             <i
               className='material-icons'
+              style={{ cursor: 'pointer', marginRight: '5px' }}
               onClick={() => onDeleteSong(deleteSong, id)}
             >
               delete

@@ -22,12 +22,16 @@ const renderLyrics = (lyrics) =>
     <Mutation key={id} mutation={LIKE_LYRIC}>
       {(likeLyric) => (
         <>
-          <li className='collection-item'>
+          <li
+            className='collection-item'
+            style={{ display: 'flex', justifyContent: 'space-between' }}
+          >
             {content}
 
-            <div className='vote-box'>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
               <i
                 className='material-icons'
+                style={{ cursor: 'pointer', marginRight: '5px' }}
                 onClick={() => onLikeLyric(likeLyric, id, likes)}
               >
                 thumb_up

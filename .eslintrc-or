@@ -5,7 +5,6 @@
     "node": true
   },
   "extends": ["airbnb-base"],
-  "plugins": ["graphql"],
   "parserOptions": {
     "ecmaVersion": 11
   },
