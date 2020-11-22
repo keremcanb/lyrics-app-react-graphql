@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link, withRouter } from 'react-router-dom';
 import { Mutation } from 'react-apollo';
-
 import FETCH_SONGS from '../queries/fetchSongs';
 import ADD_SONG from '../mutations/addSong';
 

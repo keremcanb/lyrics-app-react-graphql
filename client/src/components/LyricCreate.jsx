@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { Mutation } from 'react-apollo';
-
 import ADD_LYRIC from '../mutations/addLyricToSong';
 
 const LyricCreate = ({ songId }) => {

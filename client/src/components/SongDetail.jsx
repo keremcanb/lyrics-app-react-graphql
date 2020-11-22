@@ -1,10 +1,8 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Query } from 'react-apollo';
-
 import LyricCreate from './LyricCreate';
 import LyricList from './LyricList';
-
 import FETCH_SONG from '../queries/fetchOneSong';
 
 const SongDetail = ({ match }) => {

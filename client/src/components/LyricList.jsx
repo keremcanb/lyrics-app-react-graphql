@@ -1,6 +1,5 @@
 import React from 'react';
 import { Mutation } from 'react-apollo';
-
 import LIKE_LYRIC from '../mutations/likeLyric';
 
 const onLikeLyric = (mutation, lyricId, likes) => {
