@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
+import { Container } from 'react-materialize';
 import LyricCreate from './LyricCreate';
 import LyricList from './LyricList';
 import Loader from '../components/Loader';
@@ -15,15 +16,17 @@ const SongDetail = ({ match }) => {
 
   return !loading ? (
     !error ? (
-      <>
-        <h3>{data.song.title}</h3>
+      <Container>
+        <h3 className='center'>{data.song.title}</h3>
 
         <LyricList lyrics={data.song.lyrics} />
 
         <LyricCreate songId={data.song.id} />
 
-        <Link to='/'>Back</Link>
-      </>
+        <div className='center'>
+          <Link to='/'>Back</Link>
+        </div>
+      </Container>
     ) : (
       <p>Error loading song</p>
     )

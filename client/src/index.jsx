@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { Container } from 'react-materialize';
 import SongList from './screens/SongList';
 import SongCreate from './screens/SongCreate';
 import SongDetail from './screens/SongDetail';
@@ -16,13 +17,13 @@ const client = new ApolloClient({
 const Root = () => (
   <ApolloProvider client={client}>
     <HashRouter>
-      <div className='container'>
+      <Container>
         <Switch>
           <Route path='/' exact component={SongList} />
           <Route path='/songs/new' component={SongCreate} />
           <Route path='/songs/:id' component={SongDetail} />
         </Switch>
-      </div>
+      </Container>
     </HashRouter>
   </ApolloProvider>
 );

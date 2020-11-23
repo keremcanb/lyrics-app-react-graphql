@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import { TextInput } from 'react-materialize';
+import { TextInput, Container } from 'react-materialize';
 import FETCH_SONGS from '../graphql/queries/fetchSongs';
 import ADD_SONG from '../graphql/mutations/addSong';
 
@@ -19,8 +19,8 @@ const SongCreate = ({ history }) => {
   };
 
   return (
-    <>
-      <h3>Create New Song</h3>
+    <Container>
+      <h3 className='center'>Create New Song</h3>
 
       <form onSubmit={addSongHandler}>
         <TextInput
@@ -30,8 +30,10 @@ const SongCreate = ({ history }) => {
         />
       </form>
 
-      <Link to='/'>Back</Link>
-    </>
+      <div className='center'>
+        <Link to='/'>Back</Link>
+      </div>
+    </Container>
   );
 };
 

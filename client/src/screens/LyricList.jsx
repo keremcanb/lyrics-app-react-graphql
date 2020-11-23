@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
-import { Row, Col, Icon } from 'react-materialize';
+import { Row, Col, Icon, Container } from 'react-materialize';
 import LIKE_LYRIC from '../graphql/mutations/likeLyric';
 
 const LyricList = ({ lyrics }) => {
@@ -28,7 +28,10 @@ const LyricList = ({ lyrics }) => {
           <Col m={10}>{content}</Col>
 
           <Col m={1}>
-            <div onClick={() => likeLyricHandler(likeLyric, id, likes)}>
+            <div
+              style={{ cursor: 'pointer' }}
+              onClick={() => likeLyricHandler(likeLyric, id, likes)}
+            >
               <Icon>thumb_up</Icon>
             </div>
           </Col>

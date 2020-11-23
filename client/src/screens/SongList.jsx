@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { Row, Col, Icon } from 'react-materialize';
+import { Row, Col, Icon, Container } from 'react-materialize';
 import Loader from '../components/Loader';
 import Fab from '../components/Fab';
 import FETCH_SONGS from '../graphql/queries/fetchSongs';
@@ -23,8 +23,8 @@ const SongList = () => {
 
   return !loading ? (
     !error ? (
-      <>
-        <h3>All Songs</h3>
+      <Container>
+        <h3 className='center'>All Songs</h3>
 
         {data.songs.map(({ id, title }) => (
           <Row key={id}>
@@ -33,7 +33,10 @@ const SongList = () => {
             </Col>
 
             <Col m={1}>
-              <div onClick={() => deleteSongHandler(deleteSong, id)}>
+              <div
+                style={{ cursor: 'pointer' }}
+                onClick={() => deleteSongHandler(deleteSong, id)}
+              >
                 <Icon>delete</Icon>
               </div>
             </Col>
@@ -41,7 +44,7 @@ const SongList = () => {
         ))}
 
         <Fab />
-      </>
+      </Container>
     ) : (
       <p>Error loading songs</p>
     )
