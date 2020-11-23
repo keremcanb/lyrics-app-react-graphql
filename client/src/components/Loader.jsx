@@ -1,14 +1,8 @@
 import React from 'react';
-import { Row, Col, Preloader } from 'react-materialize';
+import { Preloader } from 'react-materialize';
 
 const Loader = () => {
-  return (
-    <Row>
-      <Col m={12}>
-        <Preloader active color='blue' flashing={false} size='big' />
-      </Col>
-    </Row>
-  );
+  return <Preloader active color='blue' flashing={false} size='big' />;
 };
 
 export default Loader;

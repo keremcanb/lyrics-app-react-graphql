@@ -18,15 +18,13 @@ const LyricCreate = ({ songId }) => {
   };
 
   return (
-    <>
-      <form onSubmit={submitHandler}>
-        <TextInput
-          label='Add a Lyric'
-          value={content}
-          onChange={(e) => setContent(e.target.value)}
-        />
-      </form>
-    </>
+    <form onSubmit={submitHandler}>
+      <TextInput
+        label='Add a Lyric'
+        value={content}
+        onChange={(e) => setContent(e.target.value)}
+      />
+    </form>
   );
 };
 

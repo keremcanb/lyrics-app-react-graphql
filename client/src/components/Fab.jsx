@@ -6,7 +6,7 @@ const Fab = () => {
   return (
     <Link to='/songs/new'>
       <Button
-        className='red'
+        className='blue'
         fab
         floating
         large

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { HashRouter, Route, Switch } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-materialize';
 import SongList from './screens/SongList';
 import SongCreate from './screens/SongCreate';
