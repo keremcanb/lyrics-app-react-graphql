@@ -20,6 +20,7 @@ module.exports = {
   plugins: ['jsx-a11y', 'prettier', 'graphql', 'babel', 'import'],
   rules: {
     'react/prop-types': 'off',
+    'react/jsx-filename-extension': 'off',
     'no-nested-ternary': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',

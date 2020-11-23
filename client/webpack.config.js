@@ -3,29 +3,24 @@ const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   mode: 'development',
-  entry: ['webpack-dev-server/client?http://localhost:8080', './src/index.jsx'],
+  entry: ['webpack-dev-server/client?http://localhost:8080', './src/index.js'],
   devtool: 'inline-source-map',
   devServer: {
-    contentBase: './dist',
-    hot: true
+    contentBase: './dist'
   },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js'
   },
   resolve: {
-    extensions: ['.js', '.jsx', '.json']
+    extensions: ['.js', '.json']
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.js?$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
-      },
-      {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
       }
     ]
   },
