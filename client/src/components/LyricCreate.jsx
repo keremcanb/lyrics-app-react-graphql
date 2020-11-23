@@ -4,7 +4,6 @@ import ADD_LYRIC from '../mutations/addLyricToSong';
 
 const LyricCreate = ({ songId }) => {
   const [content, setContent] = useState('');
-
   const [addLyric] = useMutation(ADD_LYRIC);
 
   const submitHandler = (e) => {

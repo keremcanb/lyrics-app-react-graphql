@@ -1,12 +1,11 @@
 import React, { useState } from 'react';
-import { Link, withRouter } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import FETCH_SONGS from '../queries/fetchSongs';
 import ADD_SONG from '../mutations/addSong';
 
 const SongCreate = ({ history }) => {
   const [title, setTitle] = useState('');
-
   const [addSong] = useMutation(ADD_SONG);
 
   const addSongHandler = (e) => {
@@ -35,4 +34,4 @@ const SongCreate = ({ history }) => {
   );
 };
 
-export default withRouter(SongCreate);
+export default SongCreate;
