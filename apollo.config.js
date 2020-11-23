@@ -1,1 +1,0 @@
-{ 'schemaPath': './server/schema/schema.graphql' }

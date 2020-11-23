@@ -14,7 +14,7 @@ const SongList = () => {
 
   const deleteSongHandler = (id) => {
     deleteSong({
-      // pass songId to id variable
+      // pass data.song.id to mutation id variable
       variables: { id },
       // rerun fetch songs query
       refetchQueries: [{ query: FETCH_SONGS }]
