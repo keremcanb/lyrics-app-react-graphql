@@ -16,7 +16,7 @@ const server = new ApolloServer(schema);
 server.applyMiddleware({
   app, // instance of the server
   cors: corsOptions, // takes a plain object - apollo calls cors() internally
-  path: '/graphql', // the default path
+  path: '/graphql' // the default path
 });
 
 mongoose

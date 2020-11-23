@@ -8,12 +8,12 @@ const SongSchema = mongoose.Schema(
     lyrics: [
       {
         type: Schema.Types.ObjectId,
-        ref: 'Lyric',
-      },
-    ],
+        ref: 'Lyric'
+      }
+    ]
   },
   {
-    usePushEach: true,
+    usePushEach: true
   }
 );
 

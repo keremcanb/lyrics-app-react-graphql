@@ -1,21 +1,21 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true,
+    es2021: true
   },
   extends: [
     'airbnb',
     'plugin:jsx-a11y/recommended',
     'prettier',
-    'prettier/react',
+    'prettier/react'
   ],
   parser: 'babel-eslint',
   parserOptions: {
     ecmaFeatures: {
-      jsx: true,
+      jsx: true
     },
     ecmaVersion: 12,
-    sourceType: 'module',
+    sourceType: 'module'
   },
   plugins: ['jsx-a11y', 'prettier', 'graphql', 'babel', 'import'],
   rules: {
@@ -23,6 +23,6 @@ module.exports = {
     'no-nested-ternary': 'off',
     'jsx-a11y/label-has-associated-control': 'off',
     'jsx-a11y/no-static-element-interactions': 'off',
-    'jsx-a11y/click-events-have-key-events': 'off',
-  },
+    'jsx-a11y/click-events-have-key-events': 'off'
+  }
 };

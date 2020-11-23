@@ -11,8 +11,8 @@ const LyricCreate = ({ songId }) => {
     addLyric({
       variables: {
         content,
-        songId,
-      },
+        songId
+      }
     });
     setContent('');
   };
@@ -20,7 +20,7 @@ const LyricCreate = ({ songId }) => {
   return (
     <form onSubmit={submitHandler}>
       <TextInput
-        label='Add a Lyric'
+        label="Add a Lyric"
         value={content}
         onChange={(e) => setContent(e.target.value)}
       />

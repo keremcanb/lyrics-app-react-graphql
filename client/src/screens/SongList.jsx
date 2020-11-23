@@ -12,19 +12,19 @@ const SongList = () => {
   const { loading, error, data } = useQuery(FETCH_SONGS);
   const [deleteSong] = useMutation(DELETE_SONG);
 
-  const deleteSongHandler = (mutation, songId) => {
+  const deleteSongHandler = (id) => {
     deleteSong({
       // pass songId to id variable
-      variables: { id: songId },
+      variables: { id },
       // rerun fetch songs query
-      refetchQueries: [{ query: FETCH_SONGS }],
+      refetchQueries: [{ query: FETCH_SONGS }]
     });
   };
 
   return !loading ? (
     !error ? (
       <Container>
-        <h3 className='center'>All Songs</h3>
+        <h3 className="center">All Songs</h3>
 
         {data.songs.map(({ id, title }) => (
           <Row key={id}>
@@ -34,11 +34,11 @@ const SongList = () => {
 
             <Col m={1}>
               <Button
-                className='red'
-                node='button'
+                className="red"
+                node="button"
                 floating
                 small
-                onClick={() => deleteSongHandler(deleteSong, id)}
+                onClick={() => deleteSongHandler(id)}
               >
                 <Icon right>delete</Icon>
               </Button>

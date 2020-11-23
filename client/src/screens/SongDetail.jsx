@@ -11,20 +11,20 @@ const SongDetail = ({ match }) => {
   // take all song info for query and to pass as props to child components
   const { loading, error, data } = useQuery(FETCH_SONG, {
     // take selected song id from url and pass to fetch song mutation variable
-    variables: { id: match.params.id },
+    variables: { id: match.params.id }
   });
 
   return !loading ? (
     !error ? (
       <Container>
-        <h3 className='center'>{data.song.title}</h3>
+        <h3 className="center">{data.song.title}</h3>
 
         <LyricList lyrics={data.song.lyrics} />
 
         <LyricCreate songId={data.song.id} />
 
-        <div className='center'>
-          <Link to='/'>Back</Link>
+        <div className="center">
+          <Link to="/">Back</Link>
         </div>
       </Container>
     ) : (

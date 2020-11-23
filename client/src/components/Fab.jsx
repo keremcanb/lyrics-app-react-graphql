@@ -4,13 +4,13 @@ import { Link } from 'react-router-dom';
 
 const Fab = () => {
   return (
-    <Link to='/songs/new'>
+    <Link to="/songs/new">
       <Button
-        className='blue'
+        className="blue"
         fab
         floating
         large
-        node='button'
+        node="button"
         icon={<Icon>add</Icon>}
       />
     </Link>

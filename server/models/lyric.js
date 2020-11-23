@@ -5,10 +5,10 @@ const { Schema } = mongoose;
 const LyricSchema = mongoose.Schema({
   song: {
     type: Schema.Types.ObjectId,
-    ref: 'song',
+    ref: 'song'
   },
   likes: { type: Number, default: 0 },
-  content: { type: String },
+  content: { type: String }
 });
 
 LyricSchema.statics.like = function (id) {

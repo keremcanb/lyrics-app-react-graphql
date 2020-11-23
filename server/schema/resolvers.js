@@ -7,13 +7,13 @@ module.exports = {
       return Lyric.findById(parentValue._id)
         .populate('song')
         .then((lyric) => lyric.song);
-    },
+    }
   },
 
   Song: {
     lyrics(parentValue) {
       return Song.findLyrics(parentValue._id);
-    },
+    }
   },
 
   Query: {
@@ -30,7 +30,7 @@ module.exports = {
     // get one lyric by the lyric's ID
     lyric(parentValue, { id }) {
       return Lyric.findById(id);
-    },
+    }
   },
 
   Mutation: {
@@ -48,6 +48,6 @@ module.exports = {
 
     deleteSong(parentValue, { id }) {
       return Song.deleteOne({ _id: id });
-    },
-  },
+    }
+  }
 };

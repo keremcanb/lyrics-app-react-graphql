@@ -10,8 +10,8 @@ import SongDetail from './screens/SongDetail';
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',
   cache: new InMemoryCache({
-    dataIdFromObject: (obj) => obj.id,
-  }),
+    dataIdFromObject: (obj) => obj.id
+  })
 });
 
 const Root = () => (
@@ -19,9 +19,9 @@ const Root = () => (
     <HashRouter>
       <Container>
         <Switch>
-          <Route path='/' exact component={SongList} />
-          <Route path='/songs/new' component={SongCreate} />
-          <Route path='/songs/:id' component={SongDetail} />
+          <Route path="/" exact component={SongList} />
+          <Route path="/songs/new" component={SongCreate} />
+          <Route path="/songs/:id" component={SongDetail} />
         </Switch>
       </Container>
     </HashRouter>

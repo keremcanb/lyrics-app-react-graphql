@@ -13,25 +13,25 @@ const SongCreate = ({ history }) => {
     // take form value and assign to title state and pass it to mutation variable
     addSong({
       variables: { title },
-      refetchQueries: [{ query: FETCH_SONGS }],
+      refetchQueries: [{ query: FETCH_SONGS }]
     });
     history.push('/');
   };
 
   return (
     <Container>
-      <h3 className='center'>Create New Song</h3>
+      <h3 className="center">Create New Song</h3>
 
       <form onSubmit={addSongHandler}>
         <TextInput
-          label='Song Title:'
+          label="Song Title:"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
       </form>
 
-      <div className='center'>
-        <Link to='/'>Back</Link>
+      <div className="center">
+        <Link to="/">Back</Link>
       </div>
     </Container>
   );

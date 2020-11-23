@@ -6,18 +6,18 @@ import LIKE_LYRIC from '../graphql/mutations/likeLyric';
 const LyricList = ({ lyrics }) => {
   const [likeLyric] = useMutation(LIKE_LYRIC);
 
-  const likeLyricHandler = (mutation, lyricId, likes) => {
+  const likeLyricHandler = (id, likes) => {
     likeLyric({
-      variables: { id: lyricId },
+      variables: { id },
       // not clear
       optimisticResponse: {
         __typename: 'Mutation',
         likeLyric: {
           __typename: 'Lyric',
-          id: lyricId,
-          likes: likes + 1,
-        },
-      },
+          id,
+          likes: likes + 1
+        }
+      }
     });
   };
 
@@ -29,11 +29,11 @@ const LyricList = ({ lyrics }) => {
 
           <Col m={1}>
             <Button
-              className='blue'
-              node='button'
+              className="blue"
+              node="button"
               floating
               small
-              onClick={() => likeLyricHandler(likeLyric, id, likes)}
+              onClick={() => likeLyricHandler(id, likes)}
             >
               <Icon right>thumb_up</Icon>
             </Button>
