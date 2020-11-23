@@ -2,6 +2,12 @@ const path = require('path');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  mode: 'development',
+  entry: ['webpack-dev-server/client?http://localhost:8080', './src/index.jsx'],
+  devtool: 'inline-source-map',
+  devServer: {
+    contentBase: './dist',
+  },
   output: {
     path: path.join(__dirname, 'dist'),
     filename: 'bundle.js',
