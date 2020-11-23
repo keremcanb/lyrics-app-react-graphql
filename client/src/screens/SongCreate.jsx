@@ -27,7 +27,6 @@ const SongCreate = ({ history }) => {
           label='Song Title:'
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          s={12}
         />
       </form>
 

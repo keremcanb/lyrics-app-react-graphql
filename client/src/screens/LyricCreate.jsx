@@ -23,7 +23,6 @@ const LyricCreate = ({ songId }) => {
         label='Add a Lyric'
         value={content}
         onChange={(e) => setContent(e.target.value)}
-        s={12}
       />
     </form>
   );

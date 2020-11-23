@@ -1,16 +1,19 @@
 import React from 'react';
 import { Button, Icon } from 'react-materialize';
+import { Link } from 'react-router-dom';
 
 const Fab = () => {
   return (
-    <Button
-      className='red'
-      fab
-      floating
-      large
-      node='button'
-      icon={<Icon>add</Icon>}
-    />
+    <Link to='/songs/new'>
+      <Button
+        className='red'
+        fab
+        floating
+        large
+        node='button'
+        icon={<Icon>add</Icon>}
+      />
+    </Link>
   );
 };
 

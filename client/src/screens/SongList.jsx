@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { Row, Col, Button, Icon } from 'react-materialize';
+import { Row, Col, Icon } from 'react-materialize';
 import Loader from '../components/Loader';
 import Fab from '../components/Fab';
 import FETCH_SONGS from '../graphql/queries/fetchSongs';
@@ -37,9 +37,7 @@ const SongList = () => {
           </Row>
         ))}
 
-        <Link to='/songs/new'>
-          <Fab />
-        </Link>
+        <Fab />
       </>
     ) : (
       <p>Error loading songs</p>
