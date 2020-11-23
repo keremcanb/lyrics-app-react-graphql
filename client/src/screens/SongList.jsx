@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery, useMutation } from '@apollo/client';
-import { Row, Col, Icon, Container } from 'react-materialize';
+import { Row, Col, Icon, Container, Button } from 'react-materialize';
 import Loader from '../components/Loader';
 import Fab from '../components/Fab';
 import FETCH_SONGS from '../graphql/queries/fetchSongs';
@@ -33,12 +33,15 @@ const SongList = () => {
             </Col>
 
             <Col m={1}>
-              <div
-                style={{ cursor: 'pointer' }}
+              <Button
+                className='red'
+                node='button'
+                floating
+                small
                 onClick={() => deleteSongHandler(deleteSong, id)}
               >
-                <Icon>delete</Icon>
-              </div>
+                <Icon right>delete</Icon>
+              </Button>
             </Col>
           </Row>
         ))}

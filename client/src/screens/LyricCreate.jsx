@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import { TextInput, Container } from 'react-materialize';
+import { TextInput } from 'react-materialize';
 import ADD_LYRIC from '../graphql/mutations/addLyricToSong';
 
 const LyricCreate = ({ songId }) => {
