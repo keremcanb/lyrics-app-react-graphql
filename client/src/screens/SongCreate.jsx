@@ -20,7 +20,7 @@ const SongCreate = ({ history }) => {
 
   return (
     <>
-      <h3>Create a New Song</h3>
+      <h3>Create New Song</h3>
 
       <form onSubmit={addSongHandler}>
         <TextInput

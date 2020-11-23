@@ -1,6 +1,6 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
-import { Row, Col, CollectionItem, Collection, Icon } from 'react-materialize';
+import { Row, Col, Icon } from 'react-materialize';
 import LIKE_LYRIC from '../graphql/mutations/likeLyric';
 
 const LyricList = ({ lyrics }) => {
@@ -21,23 +21,21 @@ const LyricList = ({ lyrics }) => {
   };
 
   return (
-    <Row>
-      <Collection>
-        {lyrics.map(({ id, content, likes }) => (
-          <CollectionItem>
-            <Col m={10}>{content}</Col>
+    <>
+      {lyrics.map(({ id, content, likes }) => (
+        <Row>
+          <Col m={10}>{content}</Col>
 
-            <Col m={1}>
-              <Icon onClick={() => likeLyricHandler(likeLyric, id, likes)}>
-                thumb_up
-              </Icon>
-            </Col>
+          <Col m={1}>
+            <div onClick={() => likeLyricHandler(likeLyric, id, likes)}>
+              <Icon>thumb_up</Icon>
+            </div>
+          </Col>
 
-            <Col m={1}>{likes}</Col>
-          </CollectionItem>
-        ))}
-      </Collection>
-    </Row>
+          <Col m={1}>{likes}</Col>
+        </Row>
+      ))}
+    </>
   );
 };
 
