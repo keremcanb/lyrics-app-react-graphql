@@ -21,6 +21,7 @@ const SongCreate = ({ history }) => {
   return (
     <>
       <h3>Create a New Song</h3>
+
       <form onSubmit={addSongHandler}>
         <TextInput
           label='Song Title:'
@@ -29,6 +30,7 @@ const SongCreate = ({ history }) => {
           s={12}
         />
       </form>
+
       <Link to='/'>Back</Link>
     </>
   );

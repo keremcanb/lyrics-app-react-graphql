@@ -27,11 +27,11 @@ const SongList = () => {
           <Collection>
             {data.songs.map(({ id, title }) => (
               <CollectionItem key={id}>
-                <Col m={10} s={12}>
+                <Col m={11}>
                   <Link to={`/songs/${id}`}>{title}</Link>
                 </Col>
 
-                <Col m={2} s={12}>
+                <Col m={1}>
                   <Icon onClick={() => deleteSongHandler(deleteSong, id)}>
                     delete
                   </Icon>

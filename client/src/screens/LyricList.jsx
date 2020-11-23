@@ -25,19 +25,15 @@ const LyricList = ({ lyrics }) => {
       <Collection>
         {lyrics.map(({ id, content, likes }) => (
           <CollectionItem>
-            <Col m={10} s={12}>
-              {content}
-            </Col>
+            <Col m={10}>{content}</Col>
 
-            <Col m={1} s={12}>
+            <Col m={1}>
               <Icon onClick={() => likeLyricHandler(likeLyric, id, likes)}>
                 thumb_up
               </Icon>
             </Col>
 
-            <Col m={1} s={12}>
-              {likes}
-            </Col>
+            <Col m={1}>{likes}</Col>
           </CollectionItem>
         ))}
       </Collection>
