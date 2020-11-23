@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
-import FETCH_SONGS from '../queries/fetchSongs';
-import ADD_SONG from '../mutations/addSong';
+import { TextInput } from 'react-materialize';
+import FETCH_SONGS from '../graphql/queries/fetchSongs';
+import ADD_SONG from '../graphql/mutations/addSong';
 
 const SongCreate = ({ history }) => {
   const [title, setTitle] = useState('');
@@ -21,11 +22,11 @@ const SongCreate = ({ history }) => {
     <>
       <h3>Create a New Song</h3>
       <form onSubmit={addSongHandler}>
-        <label>Song Title:</label>
-        <input
-          type='text'
-          onChange={(e) => setTitle(e.target.value)}
+        <TextInput
+          label='Song Title:'
           value={title}
+          onChange={(e) => setTitle(e.target.value)}
+          s={12}
         />
       </form>
       <Link to='/'>Back</Link>

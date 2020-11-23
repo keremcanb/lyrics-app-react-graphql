@@ -2,10 +2,9 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
-import SongList from './components/SongList';
-import SongCreate from './components/SongCreate';
-import SongDetail from './components/SongDetail';
-import './index.css';
+import SongList from './screens/SongList';
+import SongCreate from './screens/SongCreate';
+import SongDetail from './screens/SongDetail';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',

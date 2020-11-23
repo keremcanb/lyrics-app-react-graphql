@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import ADD_LYRIC from '../mutations/addLyricToSong';
+import { TextInput } from 'react-materialize';
+import ADD_LYRIC from '../graphql/mutations/addLyricToSong';
 
 const LyricCreate = ({ songId }) => {
   const [content, setContent] = useState('');
@@ -18,11 +19,11 @@ const LyricCreate = ({ songId }) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <label>Add a Lyric</label>
-      <input
-        type='text'
+      <TextInput
+        label='Add a Lyric'
         value={content}
         onChange={(e) => setContent(e.target.value)}
+        s={12}
       />
     </form>
   );

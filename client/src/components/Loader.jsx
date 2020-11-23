@@ -1,10 +1,13 @@
 import React from 'react';
+import { Row, Col, Preloader } from 'react-materialize';
 
 const Loader = () => {
   return (
-    <div className='progress'>
-      <div className='indeterminate' />
-    </div>
+    <Row>
+      <Col m={12}>
+        <Preloader active color='blue' flashing={false} size='big' />
+      </Col>
+    </Row>
   );
 };
 
