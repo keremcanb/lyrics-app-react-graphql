@@ -8,12 +8,15 @@ import FETCH_SONGS from '../graphql/queries/fetchSongs';
 import DELETE_SONG from '../graphql/mutations/deleteSong';
 
 const SongList = () => {
+  // get song id/title and pass to data
   const { loading, error, data } = useQuery(FETCH_SONGS);
   const [deleteSong] = useMutation(DELETE_SONG);
 
   const deleteSongHandler = (mutation, songId) => {
     deleteSong({
+      // pass songId to id variable
       variables: { id: songId },
+      // rerun fetch songs query
       refetchQueries: [{ query: FETCH_SONGS }],
     });
   };

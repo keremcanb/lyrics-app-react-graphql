@@ -9,6 +9,7 @@ const LyricList = ({ lyrics }) => {
   const likeLyricHandler = (mutation, lyricId, likes) => {
     likeLyric({
       variables: { id: lyricId },
+      // not clear
       optimisticResponse: {
         __typename: 'Mutation',
         likeLyric: {
@@ -23,7 +24,7 @@ const LyricList = ({ lyrics }) => {
   return (
     <>
       {lyrics.map(({ id, content, likes }) => (
-        <Row>
+        <Row key={id}>
           <Col m={10}>{content}</Col>
 
           <Col m={1}>

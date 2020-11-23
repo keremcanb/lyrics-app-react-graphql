@@ -10,7 +10,7 @@ const SongCreate = ({ history }) => {
   const [addSong] = useMutation(ADD_SONG);
 
   const addSongHandler = () => {
-    // Assign value from input to title query var and pass to mutation
+    // take form value and assign to title state and pass it to mutation variable
     addSong({
       variables: { title },
       refetchQueries: [{ query: FETCH_SONGS }],
