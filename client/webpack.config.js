@@ -7,6 +7,7 @@ module.exports = {
   devtool: 'inline-source-map',
   devServer: {
     contentBase: './dist',
+    hot: true,
   },
   output: {
     path: path.join(__dirname, 'dist'),
