@@ -8,8 +8,7 @@ const SongCreate = ({ history }) => {
   const [title, setTitle] = useState('');
   const [addSong] = useMutation(ADD_SONG);
 
-  const addSongHandler = (e) => {
-    e.preventDefault();
+  const addSongHandler = () => {
     // Assign value from input to title query var and pass to mutation
     addSong({
       variables: { title },
