@@ -9,9 +9,7 @@ const LyricCreate = ({ songId }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    addLyric({
-      variables: { content, songId }
-    });
+    addLyric({ variables: { content, songId } });
     setContent('');
   };
 

@@ -15,7 +15,7 @@ const LyricList = ({ lyrics }) => {
         likeLyric: {
           __typename: 'Lyric',
           id,
-          likes: likes + 1
+          likes
         }
       }
     });
@@ -31,7 +31,7 @@ const LyricList = ({ lyrics }) => {
           node="button"
           floating
           small
-          onClick={() => likeLyricHandler(id, likes)}
+          onClick={() => likeLyricHandler(id, likes + 1)}
         >
           <Icon right>thumb_up</Icon>
         </Button>

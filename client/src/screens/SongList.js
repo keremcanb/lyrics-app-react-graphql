@@ -18,7 +18,8 @@ const SongList = () => {
       variables: { id }
       // rerun fetch songs query
       // refetchQueries: [{ query: FETCH_SONGS }]
-    }).then(() => refetch());
+    });
+    refetch();
   };
 
   if (loading) return <Loader />;
