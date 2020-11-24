@@ -7,12 +7,10 @@ const LyricCreate = ({ songId }) => {
   const [content, setContent] = useState('');
   const [addLyric] = useMutation(ADD_LYRIC);
 
-  const submitHandler = () => {
+  const submitHandler = (e) => {
+    e.preventDefault();
     addLyric({
-      variables: {
-        content,
-        songId
-      }
+      variables: { content, songId }
     });
     setContent('');
   };

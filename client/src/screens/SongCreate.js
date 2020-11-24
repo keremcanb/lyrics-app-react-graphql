@@ -9,7 +9,8 @@ const SongCreate = ({ history }) => {
   const [title, setTitle] = useState('');
   const [addSong] = useMutation(ADD_SONG);
 
-  const addSongHandler = () => {
+  const addSongHandler = (e) => {
+    e.preventDefault();
     // take form value and assign to title state and pass it to mutation variable
     addSong({
       variables: { title },

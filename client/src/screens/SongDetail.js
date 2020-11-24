@@ -14,24 +14,23 @@ const SongDetail = ({ match }) => {
     variables: { id: match.params.id }
   });
 
-  return !loading ? (
-    !error ? (
-      <Container>
-        <h3 className="center">{data.song.title}</h3>
+  if (loading) return <Loader />;
+  if (error) return <div>Error</div>;
 
-        <LyricList lyrics={data.song.lyrics} />
+  const { title, lyrics, id } = data.song;
 
-        <LyricCreate songId={data.song.id} />
+  return (
+    <Container>
+      <h3 className="center">{title}</h3>
 
-        <div className="center">
-          <Link to="/">Back</Link>
-        </div>
-      </Container>
-    ) : (
-      <p>Error loading song</p>
-    )
-  ) : (
-    <Loader />
+      <LyricList lyrics={lyrics} />
+
+      <LyricCreate songId={id} />
+
+      <div className="center">
+        <Link to="/">Back</Link>
+      </div>
+    </Container>
   );
 };
 

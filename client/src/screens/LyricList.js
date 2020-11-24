@@ -21,29 +21,25 @@ const LyricList = ({ lyrics }) => {
     });
   };
 
-  return (
-    <>
-      {lyrics.map(({ id, content, likes }) => (
-        <Row key={id}>
-          <Col m={10}>{content}</Col>
+  return lyrics.map(({ id, content, likes }) => (
+    <Row key={id}>
+      <Col m={10}>{content}</Col>
 
-          <Col m={1}>
-            <Button
-              className="blue"
-              node="button"
-              floating
-              small
-              onClick={() => likeLyricHandler(id, likes)}
-            >
-              <Icon right>thumb_up</Icon>
-            </Button>
-          </Col>
+      <Col m={1}>
+        <Button
+          className="blue"
+          node="button"
+          floating
+          small
+          onClick={() => likeLyricHandler(id, likes)}
+        >
+          <Icon right>thumb_up</Icon>
+        </Button>
+      </Col>
 
-          <Col m={1}>{likes}</Col>
-        </Row>
-      ))}
-    </>
-  );
+      <Col m={1}>{likes}</Col>
+    </Row>
+  ));
 };
 
 export default LyricList;

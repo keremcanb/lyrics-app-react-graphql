@@ -9,50 +9,47 @@ import DELETE_SONG from '../graphql/mutations/deleteSong';
 
 const SongList = () => {
   // get song id/title and pass to data
-  const { loading, error, data } = useQuery(FETCH_SONGS);
+  const { loading, error, data, refetch } = useQuery(FETCH_SONGS);
   const [deleteSong] = useMutation(DELETE_SONG);
 
   const deleteSongHandler = (id) => {
     deleteSong({
       // pass data.song.id to mutation id variable
-      variables: { id },
+      variables: { id }
       // rerun fetch songs query
-      refetchQueries: [{ query: FETCH_SONGS }]
-    });
+      // refetchQueries: [{ query: FETCH_SONGS }]
+    }).then(() => refetch());
   };
 
-  return !loading ? (
-    !error ? (
-      <Container>
-        <h3 className="center">All Songs</h3>
+  if (loading) return <Loader />;
+  if (error) return <div>Error</div>;
 
-        {data.songs.map(({ id, title }) => (
-          <Row key={id}>
-            <Col m={11}>
-              <Link to={`/songs/${id}`}>{title}</Link>
-            </Col>
+  return (
+    <Container>
+      <h3 className="center">All Songs</h3>
 
-            <Col m={1}>
-              <Button
-                className="red"
-                node="button"
-                floating
-                small
-                onClick={() => deleteSongHandler(id)}
-              >
-                <Icon right>delete</Icon>
-              </Button>
-            </Col>
-          </Row>
-        ))}
+      {data.songs.map(({ id, title }) => (
+        <Row key={id}>
+          <Col m={11}>
+            <Link to={`/songs/${id}`}>{title}</Link>
+          </Col>
 
-        <Fab />
-      </Container>
-    ) : (
-      <p>Error loading songs</p>
-    )
-  ) : (
-    <Loader />
+          <Col m={1}>
+            <Button
+              className="red"
+              node="button"
+              floating
+              small
+              onClick={() => deleteSongHandler(id)}
+            >
+              <Icon right>delete</Icon>
+            </Button>
+          </Col>
+        </Row>
+      ))}
+
+      <Fab />
+    </Container>
   );
 };
 
