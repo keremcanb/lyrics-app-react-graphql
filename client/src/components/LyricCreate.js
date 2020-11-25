@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { TextInput } from 'react-materialize';
-import ADD_LYRIC from '../graphql/mutations/addLyricToSong';
+import { ADD_LYRIC } from '../graphql/mutations';
 
 const LyricCreate = ({ songId }) => {
   const [content, setContent] = useState('');
@@ -9,6 +9,7 @@ const LyricCreate = ({ songId }) => {
 
   const submitHandler = (e) => {
     e.preventDefault();
+    // content from input, songId from song detail
     addLyric({ variables: { content, songId } });
     setContent('');
   };

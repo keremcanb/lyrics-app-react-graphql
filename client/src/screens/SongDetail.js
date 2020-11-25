@@ -2,10 +2,10 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { Container } from 'react-materialize';
-import LyricCreate from './LyricCreate';
-import LyricList from './LyricList';
+import LyricCreate from '../components/LyricCreate';
+import LyricList from '../components/LyricList';
 import Loader from '../components/Loader';
-import FETCH_SONG from '../graphql/queries/fetchOneSong';
+import { FETCH_SONG } from '../graphql/queries';
 
 const SongDetail = ({ match }) => {
   // take all song info for query and to pass as props to child components

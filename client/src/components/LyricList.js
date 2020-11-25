@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMutation } from '@apollo/client';
 import { Row, Col, Icon, Button } from 'react-materialize';
-import LIKE_LYRIC from '../graphql/mutations/likeLyric';
+import { LIKE_LYRIC } from '../graphql/mutations';
 
 const LyricList = ({ lyrics }) => {
   const [likeLyric] = useMutation(LIKE_LYRIC);
@@ -28,7 +28,6 @@ const LyricList = ({ lyrics }) => {
       <Col m={1}>
         <Button
           className="blue"
-          node="button"
           floating
           small
           onClick={() => likeLyricHandler(id, likes + 1)}

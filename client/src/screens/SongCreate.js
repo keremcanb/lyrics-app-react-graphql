@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useMutation } from '@apollo/client';
 import { TextInput, Container } from 'react-materialize';
-import FETCH_SONGS from '../graphql/queries/fetchSongs';
-import ADD_SONG from '../graphql/mutations/addSong';
+import { FETCH_SONGS } from '../graphql/queries';
+import { ADD_SONG } from '../graphql/mutations';
 
 const SongCreate = ({ history }) => {
   const [title, setTitle] = useState('');

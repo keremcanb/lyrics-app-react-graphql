@@ -1,7 +1,16 @@
 import { gql } from '@apollo/client';
 
-export default gql`
-  query FetchOneSong($id: ID!) {
+export const FETCH_SONGS = gql`
+  {
+    songs {
+      id
+      title
+    }
+  }
+`;
+
+export const FETCH_SONG = gql`
+  query FetchSong($id: ID!) {
     song(id: $id) {
       id
       title
