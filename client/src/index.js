@@ -3,9 +3,9 @@ import ReactDOM from 'react-dom';
 import { ApolloClient, ApolloProvider, InMemoryCache } from '@apollo/client';
 import { HashRouter, Route, Switch } from 'react-router-dom';
 import { Container } from 'react-materialize';
-import SongList from './screens/SongList';
-import SongCreate from './screens/SongCreate';
-import SongDetail from './screens/SongDetail';
+import SongList from './pages/SongList';
+import SongCreate from './pages/SongCreate';
+import SongDetail from './pages/SongDetail';
 
 const client = new ApolloClient({
   uri: 'http://localhost:3000/graphql',
